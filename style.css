@@ -501,13 +501,14 @@ header {
     padding-top: 4px;
 }
 
-.portfolio__image{
-     opacity: 0.5;
- }
-.portfolio__image:hover{
-    opacity: 1;
-}
 .active-nav-link{
     color: red
+}
+.active-img{
+    outline: 5px solid #F06C64;
+}
+.active-portfolio-link{
+    color: #fff;
+    border-color: #fff;
 }
 
