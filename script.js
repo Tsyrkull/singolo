@@ -179,6 +179,34 @@ portfolioNavLinks[3].addEventListener('click', function () {
 
 
 //=========Get a quote=========
+let form = document.querySelector('.contacts__feedback-form');
+let subject = document.querySelector('.feedback-form__subject');
+let description = document.querySelector('.feedback-form__description');
+let modalMessage = document.querySelector('.form-message');
+let subjectToShow = document.querySelector('.form-message__subject');
+let descriptionToShow = document.querySelector('.form-message__description');
+let btnToShow = document.querySelector('.form-message__btn');
+
+
+form.onsubmit = function (){
+
+    subject.value ? subjectToShow.textContent = `Subject: ${subject.value}`: subjectToShow.textContent = 'No subject';
+    description.value ? descriptionToShow.textContent = `Description: ${description.value}` : descriptionToShow.textContent = 'No description' ;
+
+    modalMessage.style.display = 'block';
+
+   event.preventDefault()
+
+};
+
+btnToShow.addEventListener('click', function () {
+   form.reset();
+    subjectToShow.textContent = null;
+    descriptionToShow.textContent = null;
+    modalMessage.style.display = 'none'
+
+});
+
 
 
 

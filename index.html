@@ -36,8 +36,6 @@
     </nav>
 </header>
 <main>
-
-
     <section class="slider" id="home">
         <div class="slider__slides">
             <div class="slider__slide slider__slide1 slide-active">
@@ -65,10 +63,10 @@
             </div>
         </div>
 
-            <button class="slider-buttons__button slider-buttons__button--prev "><i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="slider-buttons__button slider-buttons__button--next"><i class="fas fa-chevron-right"></i>
-            </button>
+        <button class="slider-buttons__button slider-buttons__button--prev "><i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-buttons__button slider-buttons__button--next"><i class="fas fa-chevron-right"></i>
+        </button>
 
 
     </section>
@@ -275,7 +273,7 @@
                 elit.
                 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
             <div class="form-and-contacts">
-                <form action="singolo3.html" class="contacts__feedback-form" method="POST">
+                <form class="contacts__feedback-form" method="POST">
                     <input type="text" name="name" class="feedback-form__name" placeholder="Name (Required)" required
                            pattern="[A-Za-z]+">
                     <input type="email" name="email" class="feedback-form__email" placeholder="Email (Required)"
@@ -283,10 +281,16 @@
                            pattern="[A-Za-z0-9]+[/@][a-z]+[/.][a-z]{2,3}">
                     <input type="text" name="subject" class="feedback-form__subject" placeholder="Subject"
                            pattern="[A-Za-z]*">
-                    <textarea name="message" class="feedback-form_message" cols="30" rows="14"
+                    <textarea name="message" class="feedback-form__description" cols="30" rows="14"
                               placeholder="Describe your project in detail..."></textarea>
                     <button type="submit" class="feedback-form__submit-btn">Submit</button>
                 </form>
+                <div class="form-message">
+                    <p class="form-message__done">Your message was sent</p>
+                    <p class="form-message__subject"></p>
+                    <p class="form-message__description"></p>
+                    <button class="form-message__btn" type="button">Ok</button>
+                </div>
                 <article class="contact-information">
                     <h4 class="contact__title">Contact Information</h4>
                     <p class="contact__description">Quisque hendrerit purus dapibus, ornare nibh vitae, viver&shy;ra
