@@ -51,7 +51,78 @@ window.addEventListener('scroll', function () {
 
 });
 
-// =========Portfolio
+// =========Slider===========
+
+let slides = document.querySelectorAll('.slider__slide');
+let activeSlide = 0;
+let isEnabled = true;
+
+
+let prevBtn = document.querySelector('.slider-buttons__button--prev');
+let nextBtn = document.querySelector('.slider-buttons__button--next');
+
+function changeActiveSlide(n) {
+    activeSlide = (n + slides.length) % slides.length
+}
+
+function hideSlide(direction) {
+    isEnabled = false;
+    slides[activeSlide].classList.add(direction);
+    slides[activeSlide].addEventListener('animationend', function () {
+        this.classList.remove('slide-active', direction)
+    })
+}
+
+function showSlide(direction) {
+    slides[activeSlide].classList.add('slide-next', direction);
+    slides[activeSlide].addEventListener('animationend', function () {
+        this.classList.remove('slide-next', direction);
+        this.classList.add('slide-active');
+        isEnabled = true;
+
+    })
+}
+
+function previousSlide(n){
+    hideSlide('slide-to-right');
+    changeActiveSlide(n-1);
+    showSlide('slide-from-left')
+}
+function nextSlide(n){
+    hideSlide('slide-to-left');
+    changeActiveSlide(n+1);
+    showSlide('slide-from-right');
+}
+
+prevBtn.addEventListener('click', function(){
+    if(isEnabled){
+        previousSlide(activeSlide)
+    }
+
+});
+
+nextBtn.addEventListener('click', function(){
+    if(isEnabled){
+        nextSlide(activeSlide)
+    }
+});
+
+let slide1 = document.querySelector('.slider__slide1');
+
+slide1.addEventListener('click', function (event) {
+   let target = event.target;
+   console.log(target);
+   if (target.tagName.toLowerCase() === 'img'){
+       target.nextElementSibling.classList.toggle('display-off');
+   } else if (target.classList.contains('slide1__img--off')){
+       target.classList.toggle('display-off')
+   }
+
+});
+
+
+
+// =========Portfolio===========
 
 let portfolioNav = document.querySelector('.portfolio-nav');
 let portfolioNavLinks = document.querySelectorAll('.portfolio-nav__link');
@@ -59,9 +130,8 @@ let imgContainer = document.querySelector('.portfolio-images');
 let portfolioImgs = document.querySelectorAll('.portfolio__image');
 
 
-
 portfolioNav.addEventListener('click', function () {
-    portfolioNavLinks.forEach(el=>removeClass(el,'active-portfolio-link'));
+    portfolioNavLinks.forEach(el => removeClass(el, 'active-portfolio-link'));
     event.preventDefault();
     let target = event.target;
     if (target.tagName.toLowerCase() === 'a') {
@@ -70,9 +140,8 @@ portfolioNav.addEventListener('click', function () {
 });
 
 
-
 imgContainer.addEventListener('click', function (event) {
-    portfolioImgs.forEach(el=>removeClass(el,'active-img'));
+    portfolioImgs.forEach(el => removeClass(el, 'active-img'));
     let target = event.target;
     if (target.tagName.toLowerCase() === 'img') {
         addClass(target, 'active-img')
@@ -80,15 +149,14 @@ imgContainer.addEventListener('click', function (event) {
 });
 
 
-
 let filterAll = [...portfolioImgs].concat();
-let filterVar1 = filterAll.concat().map((el,ind,arr) => ind ===arr.length-1 ? arr[0] : arr[ind+1]);
-let filterVar2 = filterVar1.concat().map((el,ind,arr) => ind ===arr.length-1 ? arr[0] : arr[ind+1]);
-let filterVar3 = filterVar2.concat().map((el,ind,arr) => ind ===arr.length-1 ? arr[0] : arr[ind+1]);
+let filterVar1 = filterAll.concat().map((el, ind, arr) => ind === arr.length - 1 ? arr[0] : arr[ind + 1]);
+let filterVar2 = filterVar1.concat().map((el, ind, arr) => ind === arr.length - 1 ? arr[0] : arr[ind + 1]);
+let filterVar3 = filterVar2.concat().map((el, ind, arr) => ind === arr.length - 1 ? arr[0] : arr[ind + 1]);
 
 
-function useFilter(filterVariant){
-    for (let value of filterVariant){
+function useFilter(filterVariant) {
+    for (let value of filterVariant) {
         imgContainer.append(value)
     }
 }
@@ -108,6 +176,10 @@ portfolioNavLinks[2].addEventListener('click', function () {
 portfolioNavLinks[3].addEventListener('click', function () {
     useFilter(filterVar3)
 });
+
+
+//=========Get a quote=========
+
 
 
 
