@@ -195,7 +195,7 @@ form.onsubmit = function (){
 
     modalMessage.style.display = 'block';
 
-   event.preventDefault()
+   return false
 
 };
 
