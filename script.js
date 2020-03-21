@@ -186,6 +186,7 @@ let modalMessage = document.querySelector('.form-message');
 let subjectToShow = document.querySelector('.form-message__subject');
 let descriptionToShow = document.querySelector('.form-message__description');
 let btnToShow = document.querySelector('.form-message__btn');
+let modalBlocker = document.querySelector('.modal-blocker');
 
 
 form.onsubmit = function (){
@@ -194,6 +195,7 @@ form.onsubmit = function (){
     description.value ? descriptionToShow.textContent = `Description: ${description.value}` : descriptionToShow.textContent = 'No description' ;
 
     modalMessage.style.display = 'block';
+    modalBlocker.style.display = 'block';
 
    event.preventDefault()
 
@@ -203,7 +205,8 @@ btnToShow.addEventListener('click', function () {
    form.reset();
     subjectToShow.textContent = null;
     descriptionToShow.textContent = null;
-    modalMessage.style.display = 'none'
+    modalMessage.style.display = 'none';
+    modalBlocker.style.display = 'none';
 
 });
 

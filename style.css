@@ -554,8 +554,9 @@ header {
 .form-message {
     display: none;
     position: fixed;
+    z-index: 10;
     top: 30%;
-    left: 25%;
+    left: 35%;
     min-width: 500px;
     background-color: #666d89;
 }
@@ -569,6 +570,16 @@ header {
 
 .form-message__btn {
 
+}
+.modal-blocker{
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
 }
 
 .contact-information {
