@@ -24,7 +24,7 @@ headerNav.addEventListener('click', function (event) {
     } else if (target === headerNavLinks[1]) {
         window.scrollTo(0, 600)
     } else if (target === headerNavLinks[2]) {
-        window.scrollTo(0, 1100)
+        window.scrollTo(0, 1105)
     } else if (target === headerNavLinks[3]) {
         window.scrollTo(0, 1970)
     } else if (target === headerNavLinks[4]) {
@@ -210,7 +210,15 @@ btnToShow.addEventListener('click', function () {
 
 });
 
+//=========Burger Menu=========
 
+let burgerMenu = document.querySelector('.burger-menu');
+let navUl = document.querySelector('.nav-list');
+
+burgerMenu.addEventListener('click', function () {
+    navUl.classList.toggle('nav-list-mobile');
+
+});
 
 
 
