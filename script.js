@@ -2,6 +2,11 @@
 
 let headerNavLinks = document.querySelectorAll('.nav-list__link');
 let headerNav = document.querySelector('.header-nav');
+let anchorHomeCoord = document.getElementById('home').getBoundingClientRect();
+let anchorServicesCoord = document.getElementById('services').getBoundingClientRect();
+let anchorPortfolioCoord = document.getElementById('portfolio').getBoundingClientRect();
+let anchorAboutCoord = document.getElementById('about').getBoundingClientRect();
+let anchorContactsCoord = document.getElementById('contacts').getBoundingClientRect();
 
 
 function addClass(el, activeClass) {
@@ -20,15 +25,15 @@ headerNav.addEventListener('click', function (event) {
     let target = event.target;
 
     if (target === headerNavLinks[0]) {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, anchorHomeCoord.y - 90)
     } else if (target === headerNavLinks[1]) {
-        window.scrollTo(0, 600)
+        window.scrollTo(0, anchorServicesCoord.y - 90)
     } else if (target === headerNavLinks[2]) {
-        window.scrollTo(0, 1100)
+        window.scrollTo(0, anchorPortfolioCoord.y - 90)
     } else if (target === headerNavLinks[3]) {
-        window.scrollTo(0, 1970)
+        window.scrollTo(0, anchorAboutCoord.y - 90)
     } else if (target === headerNavLinks[4]) {
-        window.scrollTo(0, 2705)
+        window.scrollTo(0, anchorContactsCoord.y - 90)
     }
 });
 
@@ -210,7 +215,24 @@ btnToShow.addEventListener('click', function () {
 
 });
 
+//=========Burger Menu=========
 
+let burgerMenu = document.querySelector('.burger-menu');
+let navUl = document.querySelector('.nav-list');
+let headerLogo = document.querySelector('.header-logo');
+
+burgerMenu.addEventListener('click', function () {
+    navUl.classList.toggle('nav-list-mobile');
+    burgerMenu.classList.toggle('burger-menu-transform');
+    headerLogo.classList.toggle('header-logo--mobile');
+    modalBlocker.style.display = 'block';
+
+});
+
+headerNav.addEventListener('click', function () {
+    burgerMenu.click();
+    modalBlocker.style.display = 'none';
+});
 
 
 
